@@ -18,10 +18,10 @@ namespace Libraryservice.Controllers
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult Index(SearchTypes searchType, string searchString)
+        public IActionResult Index(SearchTypes searchTypes, string searchString)
         {
             if (!string.IsNullOrEmpty(searchString) && searchString.Length >= 3)
-                switch (searchType)
+                switch (searchTypes)
                 {                   
                     case SearchTypes.Title:
                         return View(new BookCategoryViewModel() { Books = _libraryRepositoryService.GetByTitle(searchString) });
